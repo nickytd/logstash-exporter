@@ -29,19 +29,19 @@ type HTTPHandlerInterface interface {
 func getMetrics(h HTTPHandlerInterface, target interface{}) error {
 	response, err := h.Get()
 	if err != nil {
-		level.Error(_log).Log("msg", "Cannot retrieve metrics", "err", err)
+		_ = level.Error(_log).Log("msg", "Cannot retrieve metrics", "err", err)
 		return nil
 	}
 
 	defer func() {
 		err = response.Body.Close()
 		if err != nil {
-			level.Error(_log).Log("msg", "Cannot close response body", "err", err)
+			_ = level.Error(_log).Log("msg", "Cannot close response body", "err", err)
 		}
 	}()
 
 	if err := json.NewDecoder(response.Body).Decode(target); err != nil {
-		level.Error(_log).Log("msg", "Cannot close response body", "err", err)
+		_ = level.Error(_log).Log("msg", "Cannot close response body", "err", err)
 	}
 
 	return nil

@@ -48,7 +48,7 @@ func NewNodeInfoCollector(logstashEndpoint string) (Collector, error) {
 // Collect function implements nodestats_collector collector
 func (c *NodeInfoCollector) Collect(ch chan<- prometheus.Metric) error {
 	if desc, err := c.collect(ch); err != nil {
-		level.Error(_log).Log("msg", "Failed collecting node metrics", "desc", desc, "err", err)
+		_ = level.Error(_log).Log("msg", "Failed collecting node metrics", "desc", desc, "err", err)
 		return err
 	}
 	return nil

@@ -1,20 +1,16 @@
 # Logstash exporter
-Prometheus exporter for the metrics available in Logstash since version 5.0.
-
-## Usage
-
-```bash
-go get -u github.com/BonnierNews/logstash_exporter
-cd $GOPATH/src/github.com/BonnierNews/logstash_exporter
-make
-./logstash_exporter -exporter.bind_address :1234 -logstash.endpoint http://localhost:1235
-```
+Prometheus exporter for the metrics available in Logstash since version 5.0. This repo is a fork
+from https://github.com/BonnierNews/logstash_exporter
+It has an updated prometheus client and a build based on go modules
 
 ### Flags
-Flag | Description | Default
------|-------------|---------
--exporter.bind_address | Exporter bind address | :9198
--logstash.endpoint | Metrics endpoint address of logstash | http://localhost:9600
+
+| Flag                   | Description                          | Default               |
+|------------------------|--------------------------------------|-----------------------|
+| -exporter.bind_address | Exporter bind address                | :9198                 |
+| -logstash.endpoint     | Metrics endpoint address of logstash | http://localhost:9600 |
 
 ## Implemented metrics
-* Node metrics
+
+* Node Info metrics ...
+* Node Stats metrics ...
