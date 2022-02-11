@@ -3,7 +3,7 @@ GOPATH          := $(firstword $(subst :, ,$(shell $(GO) env GOPATH)))
 GOLINTER        ?= $(GOPATH)/bin/golangci-lint
 GOLINTERCONFIG  ?= .golangci.yml
 pkgs            = $(shell $(GO) list ./... | grep -v /vendor/)
-TARGET          ?= logstash_exporter
+TARGET          ?= logstash-exporter
 
 PREFIX          ?= $(shell pwd)
 BIN_DIR         ?= $(shell pwd)
